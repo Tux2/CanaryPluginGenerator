@@ -35,6 +35,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 /**
  * @author joshua
@@ -80,6 +81,11 @@ public class Generator extends JFrame implements ActionListener {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		try {
+		    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+		    System.err.println("Could not set look and feel");
+		}
 		final Generator f = new Generator();
 		f.setBounds(100, 100, 600, 400);
 		f.setVisible(true);
