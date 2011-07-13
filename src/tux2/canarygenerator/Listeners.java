@@ -42,7 +42,7 @@ public class Listeners extends JPanel implements GeneratorPane {
 	JCheckBox cbOnblockdestroy = new JCheckBox("onBlockDestroy()");
 	JCheckBox cbOnblockphysics = new JCheckBox("onBlockPhysics()");
 	JCheckBox cbOnblockplace = new JCheckBox("onBlockPlace()");
-	JCheckBox cbOnblockrightclicked = new JCheckBox("onBlockRightClicked()");
+	JCheckBox cbOnblockrightclick = new JCheckBox("onBlockRightClick()");
 	JCheckBox cbOnchat = new JCheckBox("onChat()");
 	JCheckBox cbOncommand = new JCheckBox("onCommand()", true);
 	JCheckBox cbOnconsolecommand = new JCheckBox("onConsoleCommand()");
@@ -115,7 +115,7 @@ public class Listeners extends JPanel implements GeneratorPane {
 		listeners.add(new ListenerDefs(listenerBuilder("onBlockDestroy(Player player, Block block)", "boolean"), enableBuilder("BLOCK_DESTROYED"), cbOnblockdestroy));
 		listeners.add(new ListenerDefs(listenerBuilder("onBlockPhysics(Block block, boolean placed)", "boolean"), enableBuilder("BLOCK_PHYSICS"), cbOnblockphysics));
 		listeners.add(new ListenerDefs(listenerBuilder("onBlockPlace(Player player, Block blockPlaced, Block blockClicked, Item itemInHand)", "boolean"), enableBuilder("BLOCK_PLACE"), cbOnblockplace));
-		listeners.add(new ListenerDefs(listenerBuilder("onBlockRightClicked(Player player, Block blockClicked, Item itemInHand)", "void"), enableBuilder("BLOCK_RIGHTCLICKED"), cbOnblockrightclicked));
+		listeners.add(new ListenerDefs(listenerBuilder("onBlockRightClick(Player player, Block blockClicked, Item itemInHand)", "boolean"), enableBuilder("BLOCK_RIGHTCLICKED"), cbOnblockrightclick));
 		listeners.add(new ListenerDefs(listenerBuilder("onChat(Player player, java.lang.String message)", "boolean"), enableBuilder("CHAT"), cbOnchat));
 		listeners.add(new ListenerDefs(listenerBuilder("onCommand(Player player, java.lang.String[] split)", "boolean"), enableBuilder("COMMAND"), cbOncommand));
 		listeners.add(new ListenerDefs(listenerBuilder("onConsoleCommand(java.lang.String[] split)", "boolean"), enableBuilder("SERVERCOMMAND"), cbOnconsolecommand));
