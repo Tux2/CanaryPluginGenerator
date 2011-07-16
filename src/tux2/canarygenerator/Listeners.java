@@ -35,6 +35,7 @@ public class Listeners extends JPanel implements GeneratorPane {
 	
 	LinkedList<ListenerDefs> listeners = new LinkedList<ListenerDefs>();
 	
+	JCheckBox cbCanplayerusecommand = new JCheckBox("canPlayerUseCommand()");
 	JCheckBox cbOnarmswing = new JCheckBox("onArmSwing()");
 	JCheckBox cbOnattack = new JCheckBox("onAttack()");
 	JCheckBox cbOnban = new JCheckBox("onBan()");
@@ -65,12 +66,14 @@ public class Listeners extends JPanel implements GeneratorPane {
 	JCheckBox cbOnmobspawn = new JCheckBox("onMobSpawn()");
 	JCheckBox cbOnopeninventory = new JCheckBox("onOpenInventory()");
 	JCheckBox cbOnplayermove = new JCheckBox("onPlayerMove()");
+	JCheckBox cbOnportaluse = new JCheckBox("onPortalUse()");
 	JCheckBox cbOnredstonechange = new JCheckBox("onRedstoneChange()");
 	JCheckBox cbOnsignchange = new JCheckBox("onSignChange()");
 	JCheckBox cbOnsignshow = new JCheckBox("onSignShow()");
 	JCheckBox cbOntame = new JCheckBox("onTame()");
 	JCheckBox cbOnteleport = new JCheckBox("onTeleport()");
 	JCheckBox cbOnthunderchange = new JCheckBox("onThunderChange()");
+	JCheckBox cbOntimechange = new JCheckBox("onTimeChange()");
 	JCheckBox cbOnvehiclecollision = new JCheckBox("onVehicleCollision()");
 	JCheckBox cbOnvehiclecreate = new JCheckBox("onVehicleCreate()");
 	JCheckBox cbOnvehicledamage = new JCheckBox("onVehicleDamage()");
@@ -108,6 +111,7 @@ public class Listeners extends JPanel implements GeneratorPane {
 	}
 	
 	void buildListenerHashMap() {
+		listeners.add(new ListenerDefs(listenerBuilder("canPlayerUseCommand(Player player, java.lang.String command)", "PluginLoader.HookResult"), enableBuilder("COMMAND_CHECK"), cbCanplayerusecommand));
 		listeners.add(new ListenerDefs(listenerBuilder("onArmSwing(Player player)", "void"), enableBuilder("ARM_SWING"), cbOnarmswing));
 		listeners.add(new ListenerDefs(listenerBuilder("onAttack(LivingEntity attacker, LivingEntity defender, Integer amount) ", "boolean"), enableBuilder("ATTACK"), cbOnattack));
 		listeners.add(new ListenerDefs(listenerBuilder("onBan(Player mod, Player player, java.lang.String reason)", "void"), enableBuilder("BAN"), cbOnban));
@@ -138,12 +142,14 @@ public class Listeners extends JPanel implements GeneratorPane {
 		listeners.add(new ListenerDefs(listenerBuilder("onMobSpawn(Mob mob)", "boolean"), enableBuilder("MOB_SPAWN"), cbOnmobspawn));
 		listeners.add(new ListenerDefs(listenerBuilder("onOpenInventory(Player player, Inventory inventory)", "boolean"), enableBuilder("OPEN_INVENTORY"), cbOnopeninventory));
 		listeners.add(new ListenerDefs(listenerBuilder("onPlayerMove(Player player, Location from, Location to)", "void"), enableBuilder("PLAYER_MOVE"), cbOnplayermove));
+		listeners.add(new ListenerDefs(listenerBuilder("onPortalUse(Player player, World from)", "boolean"), enableBuilder("PORTAL_USE"), cbOnportaluse));
 		listeners.add(new ListenerDefs(listenerBuilder("onRedstoneChange(Block block, int oldLevel, int newLevel)", "int"), enableBuilder("REDSTONE_CHANGE"), cbOnredstonechange));
 		listeners.add(new ListenerDefs(listenerBuilder("onSignChange(Player player, Sign sign)", "boolean"), enableBuilder("SIGN_CHANGE"), cbOnsignchange));
 		listeners.add(new ListenerDefs(listenerBuilder("onSignShow(Player player, Sign sign)", "void"), enableBuilder("SIGN_SHOW"), cbOnsignshow));
 		listeners.add(new ListenerDefs(listenerBuilder("onTame(Player player, Mob wolf)", "PluginLoader.HookResult"), enableBuilder("TAME"), cbOntame));
 		listeners.add(new ListenerDefs(listenerBuilder("onTeleport(Player player, Location from, Location to)", "boolean"), enableBuilder("TELEPORT"), cbOnteleport));
 		listeners.add(new ListenerDefs(listenerBuilder("onThunderChange(World world, boolean newValue)", "boolean"), enableBuilder("THUNDER_CHANGE"), cbOnthunderchange));
+		listeners.add(new ListenerDefs(listenerBuilder("onTimeChange(World world, long newValue)", "boolean"), enableBuilder("TIME_CHANGE"), cbOntimechange));
 		listeners.add(new ListenerDefs(listenerBuilder("onVehicleCollision(BaseVehicle vehicle, BaseEntity collisioner)", "Boolean"), enableBuilder("VEHICLE_COLLISION"), cbOnvehiclecollision));
 		listeners.add(new ListenerDefs(listenerBuilder("onVehicleCreate(BaseVehicle vehicle)", "void"), enableBuilder("VEHICLE_CREATE"), cbOnvehiclecreate));
 		listeners.add(new ListenerDefs(listenerBuilder("onVehicleDamage(BaseVehicle vehicle, BaseEntity attacker, int damage)", "boolean"), enableBuilder("VEHICLE_DAMAGE"), cbOnvehicledamage));

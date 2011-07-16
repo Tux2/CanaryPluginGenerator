@@ -44,7 +44,7 @@ import javax.swing.UIManager;
 public class Generator extends JFrame implements ActionListener {
 	
 	JTextField pluginname = new JTextField("SamplePlugin");
-	static String version = "1.3";
+	static String version = "1.4";
 	static String canaryversion = "b8";
 	JTextField pluginversion = new JTextField("0.1");
 	LinkedList<GeneratorPane> panes = new LinkedList<GeneratorPane>();
